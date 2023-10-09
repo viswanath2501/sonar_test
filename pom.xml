@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jdevs</groupId>
+  <artifactId>studentapp</artifactId>
+  <version>2.5-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.9.1.2184</version>
+    </plugin>
+    </plugins>
+  </build>
+   <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>student snapshots Releases</name>
+            <url>http://175.41.216.133:8081/repository/studentapp-rel/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>student Snapshot </name>
+            <url>http://175.41.216.133:8081/repository/studentapp-snap/</url>
+        </snapshotRepository>
+    </distributionManagement>
+  <properties>
+  <!-- Other properties -->
+  <sonar.host.url>http://18.183.102.107:9000/</sonar.host.url>
+    <sonar.login>admin</sonar.login>
+    <sonar.password>sam</sonar.password>
+     <sonar.java.binaries>src/</sonar.java.binaries>
+</properties>
+  <dependencies>
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+  	</dependency>
+  </dependencies>
+</project>
